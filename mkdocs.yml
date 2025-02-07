@@ -1,4 +1,4 @@
-site_name: Dev Container UV Data Science
+site_name: UV Data Science Project Mono-Repository Template
 nav:
   - Home: index.md
   - API Reference:
