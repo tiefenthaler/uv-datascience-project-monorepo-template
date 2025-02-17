@@ -16,11 +16,11 @@ WORKDIR /${WORKSPACE_NAME}
 RUN --mount=type=cache,target=/root/.cache/uv \
     --mount=type=bind,source=uv.lock,target=uv.lock \
     --mount=type=bind,source=pyproject.toml,target=pyproject.toml \
-    uv sync --frozen --no-install-project --no-dev
+    uv sync --frozen --no-install-workspace --no-dev
 # Then, add the rest of the project source code and install it. See `Dockerfile` for details.
 COPY . /${WORKSPACE_NAME}
 RUN --mount=type=cache,target=/root/.cache/uv \
-    uv sync --frozen --no-dev
+    uv sync --frozen --all-packages --no-dev
 
 # SECOND, use a final image without uv.
 FROM python:3.12-slim-bookworm
@@ -34,4 +34,4 @@ COPY --from=builder --chown=${WORKSPACE_NAME}:${WORKSPACE_NAME} /${WORKSPACE_NAM
 ENV PATH="/${WORKSPACE_NAME}/.venv/bin:$PATH"
 
 # Run the FastAPI application by default with `uvicorn`.
-CMD ["uvicorn", "main:app", "--host", "0.0.0.0", "--port", "8000"]
+CMD ["uv", "run", "hello"]

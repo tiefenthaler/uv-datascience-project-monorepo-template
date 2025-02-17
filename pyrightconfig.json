@@ -5,7 +5,9 @@
     "typeCheckingMode": "standard",
     "include": [
         "src/",
-        "tests/"
+        "tests/",
+        "packages/lit-auto-encoder/src/", // monorepo setup
+        "packages/lit-auto-encoder/tests/" // monorepo setup
     ],
     "exclude": [
         "**/__pycache__",

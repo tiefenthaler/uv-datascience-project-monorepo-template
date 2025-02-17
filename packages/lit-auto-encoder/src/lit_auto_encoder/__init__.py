@@ -4,7 +4,7 @@ PyTorch Lightning module used as an example as a python package for the tutorial
 for data science projects using uv.
 """
 
-from .app_fastapi_autoencoder import app
-from .main import main
+from .auto_encoder import LitAutoEncoder
+from .train_autoencoder import train_litautoencoder
 
-__all__ = ["app", "main"]
+__all__ = ["LitAutoEncoder", "train_litautoencoder"]

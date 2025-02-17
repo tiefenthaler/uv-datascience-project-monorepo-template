@@ -3,11 +3,10 @@ from typing import Any
 
 import uvicorn
 from fastapi import FastAPI, HTTPException, Response
+from lit_auto_encoder import train_litautoencoder
+from lit_auto_encoder.auto_encoder import LitAutoEncoder
 from pydantic import BaseModel, conint
 from torch import rand
-
-from .lit_auto_encoder import LitAutoEncoder
-from .train_autoencoder import train_litautoencoder
 
 app = FastAPI()
 

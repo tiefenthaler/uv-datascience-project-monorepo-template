@@ -1,0 +1,34 @@
+# https://github.com/lewagon/wait-on-check-action
+
+name: CI Workflow Status
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  actions: read
+
+jobs:
+  wait-for-all:
+    name: Wait for all workflows
+    runs-on: ubuntu-latest
+    steps:
+      - name: Step Wait for all workflows
+        uses: lewagon/wait-on-check-action@v1.3.4
+        with:
+          ref: ${{ github.ref }}
+          repo-token: ${{ secrets.GITHUB_TOKEN }}
+          running-workflow-name: "Wait for all workflows"  # Wait for all other workflows to complete by specifying the name of this job.
+          wait-interval: 10
+
+  final-check:
+    runs-on: ubuntu-latest
+    needs: wait-for-all
+    steps:
+      - name: Success message
+        run: echo "All workflows completed successfully!"

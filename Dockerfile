@@ -24,7 +24,7 @@ ENV UV_COMPILE_BYTECODE=1
 RUN --mount=type=cache,target=/root/.cache/uv \
     --mount=type=bind,source=uv.lock,target=uv.lock \
     --mount=type=bind,source=pyproject.toml,target=pyproject.toml \
-    uv sync --frozen --no-install-project --no-dev
+    uv sync --frozen --no-install-workspace --no-dev
 
 # Production setup: Copy application and related package source code and install it.
 #     For an even more robust setup, consider installing packages using a wheel file.
@@ -33,10 +33,12 @@ COPY . /${WORKSPACE_NAME}
 # Use the uv interface to install the packages.
 RUN --mount=type=cache,target=/root/.cache/uv \
     # If a build system is defined in the pyproject.toml, it will be used to build the package.
-    uv sync --frozen --no-dev
+    uv sync --all-packages --frozen --no-dev
     # If a build system is defined in the pyproject.toml and you do not want to build the packages.
     # Use "--no-editable" to install the package from source code, but without a dependency on the originating source code.
-    # uv sync --frozen --no-dev --no-editable
+    # uv sync --all-packages --frozen --no-dev --no-editable
+    # Or use the pip interface to install the packages.
+    # RUN uv pip install dist/*.whl
 
 # Add executables to environment paths, to ensure that these executables are used instead of any system-wide versions.
 ENV PATH="/${WORKSPACE_NAME}/.venv/bin:$PATH"
@@ -45,4 +47,4 @@ ENV PATH="/${WORKSPACE_NAME}/.venv/bin:$PATH"
 ENTRYPOINT []
 
 # Run the FastAPI application by default with `uvicorn`.
-CMD ["uvicorn", "main:app", "--host", "0.0.0.0", "--port", "8000"]
+CMD ["uv", "run", "hello"]

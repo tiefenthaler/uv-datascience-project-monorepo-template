@@ -26,7 +26,7 @@ services:
       - "8000:8000"
     
     # Default command to start the FastAPI application.
-    command: ["uvicorn", "main:app", "--host", "0.0.0.0", "--port", "8000"]
+    command: ["uv", "run", "hello"]
 
   app-optimized-docker:
     # Build the image from the Dockerfile in the current directory
@@ -42,4 +42,4 @@ services:
       - "8000:8000"
 
     # Default command to start the FastAPI application.
-    command: ["uvicorn", "main:app", "--host", "0.0.0.0", "--port", "8000"]
+    command: ["uv", "run", "hello"]
