@@ -1,3 +1,3 @@
 # Training
 
-::: uv_datascience_project_template.train_autoencoder
+::: lit_auto_encoder.train_autoencoder
