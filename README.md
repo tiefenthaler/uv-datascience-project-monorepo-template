@@ -8,11 +8,11 @@
 <!--docs-ref-index-0-end-->
 
 <!--docs-ref-index-0.1-start-->
-[![testing status - event](https://github.com/tiefenthaler/uv-datascience-project-template/actions/workflows/testing.yml/badge.svg?event=push)](https://github.com/tiefenthaler/uv-datascience-project-template/actions/workflows/testing.yml)
-[![coverage status - file](https://raw.githubusercontent.com/tiefenthaler/uv-datascience-project-template/coverage-badge/coverage.svg)](https://github.com/tiefenthaler/uv-datascience-project-template/blob/coverage-badge/coverage.svg)
-[![ci workflows - event](https://github.com/tiefenthaler/uv-datascience-project-template/actions/workflows/check-all-workflows.yml/badge.svg?event=push)](https://github.com/tiefenthaler/uv-datascience-project-template/actions)
-[![documentation status - event](https://github.com/tiefenthaler/uv-datascience-project-template/actions/workflows/publish-docs.yml/badge.svg?event=push)](https://github.com/tiefenthaler/uv-datascience-project-template/actions/workflows/publish-docs.yml)
-[![docker - static](https://img.shields.io/badge/docker-ready-blue.svg)](https://github.com/tiefenthaler/uv-datascience-project-template/actions/workflows/docker.yml)
+[![testing status - event](https://github.com/tiefenthaler/uv-datascience-project-monorepo-template/actions/workflows/testing.yml/badge.svg?event=push)](https://github.com/tiefenthaler/uv-datascience-project-monorepo-template/actions/workflows/testing.yml)
+[![coverage status - file](https://raw.githubusercontent.com/tiefenthaler/uv-datascience-project-monorepo-template/coverage-badge/coverage.svg)](https://github.com/tiefenthaler/uv-datascience-project-monorepo-template/blob/coverage-badge/coverage.svg)
+[![ci workflows - event](https://github.com/tiefenthaler/uv-datascience-project-monorepo-template/actions/workflows/check-all-workflows.yml/badge.svg?event=push)](https://github.com/tiefenthaler/uv-datascience-project-monorepo-template/actions)
+[![documentation status - event](https://github.com/tiefenthaler/uv-datascience-project-monorepo-template/actions/workflows/publish-docs.yml/badge.svg?event=push)](https://github.com/tiefenthaler/uv-datascience-project-monorepo-template/actions/workflows/publish-docs.yml)
+[![docker - static](https://img.shields.io/badge/docker-ready-blue.svg)](https://github.com/tiefenthaler/uv-datascience-project-monorepo-template/actions/workflows/docker.yml)
 [![license: MIT - static](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 <!--docs-ref-index-0.1-end-->
 
@@ -34,7 +34,7 @@ This **UV Setup** supports the given scope.
 This guide provides instructions on how to develop and productionize machine learning applications in a robust and efficient way.  
 It is demonstrated how to achieve this using a modern setup of tools, like UV, Docker, Ruff, FastAPI and more (see [Overview Tools](#overview-tools) Section). The focus of this project is to give an introduction to using those tools and not on how to properly set up a machine learning application (for production). Therefore only a simple machine learning pipeline based on PyTorch/Lightning and FastAPI is used.
 
-> **See the related [Project Documentation](https://tiefenthaler.github.io/uv-datascience-project-template/) for additional information.**
+> **See the related [Project Documentation](https://tiefenthaler.github.io/uv-datascience-project-monorepo-template/) for additional information.**
 <!--docs-ref-index-1-end-->
 
 - [UV Data Science Project MonoRepo Template](#uv-data-science-project-monorepo-template)
@@ -170,7 +170,7 @@ uv sync --all-packages
 
 ## Overview Tools
 
-The project includes the following components, for more details see [Documentation - Guides](https://tiefenthaler.github.io/uv-datascience-project-template/guides/):
+The project includes the following components, for more details see [Documentation - Guides](https://tiefenthaler.github.io/uv-datascience-project-monorepo-template/guides/):
 
 | Tool                        | Description                                                                                       |
 |-----------------------------|---------------------------------------------------------------------------------------------------|
@@ -189,7 +189,7 @@ The project includes the following components, for more details see [Documentati
 
 `UV` is a tool that simplifies the management of Python projects and virtual environments. It handles dependency installation, virtual environment creation, and other project configurations. In this project, `UV` is used to manage dependencies and the virtual environment inside the Docker container, ensuring a consistent and reproducible setup.
 
-See [Guides - UV](https://tiefenthaler.github.io/uv-datascience-project-template/guides/uv/) for a comprehensive guide.
+See [Guides - UV](https://tiefenthaler.github.io/uv-datascience-project-monorepo-template/guides/uv/) for a comprehensive guide.
 
 ### pyproject toml
 
@@ -202,7 +202,7 @@ The `pyproject.toml` file includes the following sections:
 
 ## Custom Code in src Folder
 
-See [Source Code API Reference](https://tiefenthaler.github.io/uv-datascience-project-template/api/fastapi_app/) for a comprehensive documentation.
+See [Source Code API Reference](https://tiefenthaler.github.io/uv-datascience-project-monorepo-template/api/fastapi_app/) for a comprehensive documentation.
 
 The `src` folder and the `packages/lit-auto-encoder/src` folder contains the custom code for the machine learning project. The main components include:
 
@@ -228,7 +228,7 @@ The FastAPI application is defined in the `app_fastapi_autoencoder.py` file. It 
 
 #### app_fastapi_autoencoder
 
-See [Source Code API Reference](https://tiefenthaler.github.io/uv-datascience-project-template/api/fastapi_app/) for a comprehensive documentation.
+See [Source Code API Reference](https://tiefenthaler.github.io/uv-datascience-project-monorepo-template/api/fastapi_app/) for a comprehensive documentation.
 
 This file defines the FastAPI application and the endpoints. It includes:
 
@@ -262,7 +262,7 @@ if __name__ == "__main__":
 
 ## Production Setup for the Machine Learning FastAPI App hosted in the Docker container
 
-See [Docker Production Setup](https://tiefenthaler.github.io/uv-datascience-project-template/guides/docker_prod/) for a comprehensive guide.
+See [Docker Production Setup](https://tiefenthaler.github.io/uv-datascience-project-monorepo-template/guides/docker_prod/) for a comprehensive guide.
 
 ### Dockerfile
 
@@ -335,7 +335,7 @@ Build and run a specific or all services when multiple services ("app" and "app-
 
 ## Development in Dev Container
 
-See [VSCode Dev-Container (Docker) Setup for Data Science Projects using UV](https://tiefenthaler.github.io/uv-datascience-project-template/guides/docker_vscode_devcontainer/) for a comprehensive guide.
+See [VSCode Dev-Container (Docker) Setup for Data Science Projects using UV](https://tiefenthaler.github.io/uv-datascience-project-monorepo-template/guides/docker_vscode_devcontainer/) for a comprehensive guide.
 
 - Run the server: `uv run /workspace/main.py`
 - Test the standard endpoints with curl:
